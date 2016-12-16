@@ -1,6 +1,9 @@
 # wine20-bcrypt-doom
 ## Patched WINE bCrypt dll to run DOOM (2016)
 
+### This whole library should be reimplemented using some crypto lib, which at least has a hash duplicating functionality.
+### Current workaround is a crap, but it works :)
+
 First, create a directory, where you will build wine:
 ```
 $ mkdir ~/wine20
