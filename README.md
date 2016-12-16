@@ -1,2 +1,2 @@
 # wine20-bcrypt-doom
-Patched WINE's bCrypt to run DOOM (2016)
+Patched WINE bCrypt dll to run DOOM (2016)
