@@ -4,6 +4,29 @@
 ### This whole library should be reimplemented using some crypto lib, which at least has a hash duplicating functionality.
 ### Current workaround is a crap, but it works :)
 
+### Current progress:
+
+Shortly after loading the game is going online to obtain auth tickets from `services.bethesda.net` and intialize your saved profiles.
+At this point it will hang on the red screen (still trying to figure out why it's doing so).
+The only way to prevent it from hanging is to disallow the game to initialize the auth ticket and stuff.
+Which means:
+- settings won't save between game restarts
+- no save games (checkpoints are okay while the game is still running)
+- no multiplayer
+
+To prevent it from hanging you can edit /etc/hosts and add this lines:
+
+    127.0.0.1 dfw-gobbler.doom.amok.systems
+    127.0.0.1 services.bethesda.net
+
+`+set devMode_enable 1` won't help because it still communicates with bethesda servers, but will allow you to open all maps.
+(it was useful in a previous version of the patch with a bug in it which i've never posted)
+
+### If you have any build errors - check the build dependencies.
+on ubuntu libgnutls28-dev is required: https://github.com/thevoidnn/wine20-bcrypt-doom/issues/2
+
+### How to build
+
 First, create a directory, where you will build wine:
 ```
 $ mkdir ~/wine20
@@ -63,23 +86,11 @@ Don't forget to put the same wineprefix path in this scripts:
     $ $EDITOR ./steam.sh
     $ $EDITOR ./steam-trace.sh
 
-Currently, the game only runs with
-    
-    +set devMode_enable 1
-
-Otherwise it will crash once it starts to communicate with bethesda servers.
-You can prevent it from doing so by editing /etc/hosts and adding this lines,
-but you probably should use devMode_enable 1 instead
-
-    127.0.0.1 dfw-gobbler.doom.amok.systems
-    127.0.0.1 services.bethesda.net
-
-
-I would suggest setting `+set r_fullscreen 0` too:
+If you want the game to start in a window you can use `+set r_fullscreen 0`
 
 Right click on DOOM in steam library -> Properties -> Set Launch Options:
 
-    +set devMode_enable 1 +set r_fullscreen 0
+    +set r_fullscreen 0
 
 
 http://steamcommunity.com/app/379720/discussions/0/152391995402132325/
