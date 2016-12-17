@@ -4,6 +4,8 @@
 ### This whole library should be reimplemented using some crypto lib, which at least has a hash duplicating functionality.
 ### Current workaround is a crap, but it works :)
 
+irc: freenode.net #doom-wine
+
 ### Current progress:
 
 Shortly after loading the game is going online to obtain auth tickets from `services.bethesda.net` and intialize your saved profiles.
