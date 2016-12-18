@@ -6,6 +6,13 @@
 
 irc: freenode.net #doom-wine
 
+### Vulkan support note
+if you have vulkan available in your drivers, you can try it, but you will have to build wine-staging from
+https://github.com/wine-compholio/wine-patched
+instead of wine-2.0-rc1.
+
+and don't forget to copy `wine-2.0-rc1/include/bcrypt.h` to `wine-patched/include/`
+
 ### Current progress:
 
 Shortly after loading the game is going online to obtain auth tickets from `services.bethesda.net` and intialize your saved profiles.
