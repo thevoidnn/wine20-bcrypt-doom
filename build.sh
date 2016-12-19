@@ -1,4 +1,6 @@
-
+NCPU=`cat /proc/cpuinfo |grep vendor_id |wc -l`
+let NCPU=$NCPU+2
+echo "Will build with 'make -j$NCPU' ... please edit this script if incorrect."
 
 pkgname=wine-2.0-rc1
 
@@ -41,7 +43,7 @@ echo "Building Wine-64..."
 cd "$srcdir/$pkgname-64-build"
 
 configure64
-make -j8
+make -j$NCPU
 #make
 
 # Build x32
@@ -52,5 +54,5 @@ echo "Building Wine-32..."
 cd "$srcdir/$pkgname-32-build"
 
 configure32
-make -j8
+make -j$NCPU
 #make
