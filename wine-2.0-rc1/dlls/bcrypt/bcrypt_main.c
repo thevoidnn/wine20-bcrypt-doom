@@ -753,6 +753,7 @@ static NTSTATUS hashmac_init_duplicated( struct hash **p_hashmac, struct algorit
     struct hash *root;
     struct hash *hash;
     NTSTATUS status;
+    int i;
 
     status = hashmac_init_single(&root, alg, secret, secret_size);
     if (status != STATUS_SUCCESS) {
@@ -762,7 +763,7 @@ static NTSTATUS hashmac_init_duplicated( struct hash **p_hashmac, struct algorit
 
     hash = root;
 
-    for (int i = 0; i < MAX_DUPLICATES; i++) {
+    for (i = 0; i < MAX_DUPLICATES; i++) {
 
         status = hashmac_init_single(&hash->duplicate, alg, secret, secret_size);
 
