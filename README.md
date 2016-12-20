@@ -1,8 +1,9 @@
 # wine20-bcrypt-doom
 ## Patched WINE bCrypt dll to run DOOM (2016)
 
-### This whole library should be reimplemented using some crypto lib, which at least has a hash duplicating functionality.
-### Current workaround is a crap, but it works :)
+### This repo reimplements bCrypt using libgcrypt:
+### https://github.com/isage/wine-doom
+### Consider using it instead of this workaround.
 
 irc: freenode.net #doom-wine
 
