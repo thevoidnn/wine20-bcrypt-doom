@@ -1,9 +1,15 @@
 # wine20-bcrypt-doom
 ## Patched WINE bCrypt dll to run DOOM (2016)
 
+### Wine-Staging realeased it's own implementation:
+### https://github.com/wine-compholio/wine-staging/tree/master/patches/bcrypt-Improvements
+### Consider using it instead of this workaround.
+
+
+
 ### This repo reimplements bCrypt using libgcrypt:
 ### https://github.com/isage/wine-doom
-### Consider using it instead of this workaround.
+
 
 irc: freenode.net #doom-wine
 
