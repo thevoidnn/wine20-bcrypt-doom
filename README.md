@@ -22,21 +22,8 @@ and don't forget to copy `wine-2.0-rc1/include/bcrypt.h` to `wine-patched/includ
 
 ### Current progress:
 
-Shortly after loading the game is going online to obtain auth tickets from `services.bethesda.net` and intialize your saved profiles.
-At this point it will hang on the red screen (still trying to figure out why it's doing so).
-The only way to prevent it from hanging is to disallow the game to initialize the auth ticket and stuff.
-Which means:
-- settings won't save between game restarts
-- no save games (checkpoints are okay while the game is still running)
-- no multiplayer
-
-To prevent it from hanging you can edit /etc/hosts and add this lines:
-
-    127.0.0.1 dfw-gobbler.doom.amok.systems
-    127.0.0.1 services.bethesda.net
-
-`+set devMode_enable 1` won't help because it still communicates with bethesda servers, but will allow you to open all maps.
-(it was useful in a previous version of the patch with a bug in it which i've never posted)
+Everything works now with current wine-staging implementation of bCrypt and fixes of winhttp.
+No need to use this workaround.
 
 ### If you have any build errors - check the build dependencies.
 on ubuntu libgnutls28-dev is required: https://github.com/thevoidnn/wine20-bcrypt-doom/issues/2
